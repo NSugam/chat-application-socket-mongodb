@@ -47,9 +47,9 @@ export default function GroupChat() {
 
     return (
         <div className='container col-sm-7 col-md-4 rounded bg-dark mt-5' style={{ maxHeight: '80vh', overflowY: 'auto' }}>
-            <h5 className='text-light mt-2 p-2 sticky-top bg-success rounded' style={{ zIndex: 100 }}>
-                Group Chat - {groupName}
-            </h5>
+            <h6 className='text-dark mt-2 p-2 sticky-top bg-warning rounded' style={{ zIndex: 100 }}>
+                Group Chat: {groupName}
+            </h6>
             <hr className='text-light' />
 
             <div className="chat-history-messages mx-4">

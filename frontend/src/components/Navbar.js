@@ -57,7 +57,7 @@ export default function Navbar() {
                     {states.isConnected ? <span className="me-1" style={{ fontSize: '13px' }}>🟢</span> :
                         <span className="me-1" style={{ fontSize: '13px' }}>🔴</span>
                     }
-                    {states.user?.username || 'Login First'}</div>
+                    {states.user?.username || 'Login to continue'}</div>
                 <div>
                     {states.isAuthenticated ?
                         <button type="button" onClick={handleLogout} className="btn btn-danger">Logout</button> :

@@ -30,22 +30,25 @@ export default function Homepage() {
             <h4 className='text-center text-secondary'>- Socket.io -</h4>
             <ActiveUsers />
             <Groups />
-            <div className="container text- mt-3 col-lg-4">
+            <div className="container text- mt-5 col-lg-4">
                 <h5 className="text-secondary mb-3">All Users: {allUsers?.length - 1}</h5>
-                <ul className="list-group rounded rounded-4">
+                <div className="row">
                     {allUsers
                         .filter(user => user.username !== states.user?.username)
                         .map((user) => (
-                            <li key={user.username} className="list-group-item d-flex">
-                                <span class="material-symbols-outlined me-1">
-                                    account_circle
-                                </span>
-                                <Link to={`/chat/${user.username}`} className="text-dark fw-bold text-decoration-none">
-                                    {user.username}
-                                </Link>
-                            </li>
+                            <div className="col-md-6 mb-2" key={user.username}>
+                                <div className="list-group">
+                                    <Link to={`/chat/${user.username}`} className="d-flex fw-bold list-group-item list-group-item-action list-group-item-light">
+                                        <span className="material-symbols-outlined me-2">
+                                            account_circle
+                                        </span>
+                                        {user.username}
+                                    </Link>
+                                </div>
+                            </div>
                         ))}
-                </ul>
+                </div>
+
             </div>
 
         </>

@@ -30,14 +30,16 @@ export default function Groups() {
                 </h5>
                 <ul className="list-group">
                     {states.groupList?.map((group) => (
-                        <li key={group._id} className="list-group-item d-flex">
-                            <span class="material-symbols-outlined me-2 text-success">
-                                groups
-                            </span>
-                            <Link to={`/group-chat/${group.group_name}`} className="text-success fw-bold text-decoration-none">
-                                {group.group_name} group
-                            </Link>
-                        </li>
+                        <div className="mb-2" key={group._id}>
+                            <div className="list-group">
+                                <Link to={`/group-chat/${group.group_name}`} className="d-flex fw-bold list-group-item list-group-item-action list-group-item-warning">
+                                    <span className="material-symbols-outlined me-2">
+                                        groups
+                                    </span>
+                                    {group.group_name} group
+                                </Link>
+                            </div>
+                        </div>
                     ))}
                 </ul>
             </div>

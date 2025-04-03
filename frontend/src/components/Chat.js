@@ -55,11 +55,11 @@ export default function Chat() {
     };
 
     return (
-        <div className='container col-sm-7 col-md-4 rounded bg-dark mt-4' style={{ height: '75vh', overflowY: 'auto' }}>
-            <h6 className='text-light mt-2 p-2 sticky-top text-dark bg-warning rounded' style={{ zIndex: 100 }}>
+        <div className='container col-sm-7 col-md-4 rounded bg-dark mt-4' style={{ height: '70vh', overflowY: 'auto' }}>
+            <h6 className='text-light mt-2 p-2 sticky-top bg-success rounded' style={{ zIndex: 100 }}>
                 {states.onlineUsers.includes(username) ?
-                    <span className="text-success me-2" style={{ fontSize: '14px' }}>🟢</span> :
-                    <span className="text-success me-2" style={{ fontSize: '14px' }}>🔴</span>
+                    <span className="text-light me-2" style={{ fontSize: '14px' }}>🟢</span> :
+                    <span className="text-light me-2" style={{ fontSize: '14px' }}>🔴</span>
                 }
                 {username}
             </h6>
@@ -73,7 +73,7 @@ export default function Chat() {
                         )
                         .map((msg, index) => (
                             <div key={index} className="my-3 container bg-light p-2 rounded rounded-5">
-                                <strong className={msg.sender.username === username ? "text-danger" : "text-success"}>
+                                <strong className={msg.sender.username === username ? "text-danger ms-1" : "text-success ms-1"}>
                                     {msg.sender.username === states.user.username ? "Me" : msg.sender.username}:
                                 </strong>
                                 <span className="text-dark"> {msg.message_text}</span>

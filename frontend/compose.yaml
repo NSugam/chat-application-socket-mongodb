@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  react-app:
+    build: .
+    environment:
+      NODE_ENV: production
+      REACT_APP_HOSTNAME: https://server.sujalneupane.com.np
+
+    ports:
+      - "3000:3000"

@@ -1,0 +1,11 @@
+/* Prevent rotation on toast icons */
+.Toastify__toast-icon svg {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Stop rotation on toast close icon */
+.Toastify__close-button svg {
+    animation: none !important;
+    transform: none !important;
+}

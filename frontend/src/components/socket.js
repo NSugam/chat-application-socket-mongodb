@@ -13,7 +13,7 @@ export const initializeSocket = (username, setOnlineUsers) => {
     
     socket.emit("user-online", username);
 
-    socket.on("online-users", (users) => {
-        setOnlineUsers(users.filter((user) => user && user !== username));
+    socket.on("online-users", async (users) => {
+        await setOnlineUsers(users.filter((user) => user && user !== username));
     });
 };

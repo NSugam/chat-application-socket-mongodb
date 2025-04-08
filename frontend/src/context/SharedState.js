@@ -43,8 +43,8 @@ const SharedState = (props) => {
                 }
 
             }).catch((error) => {
-                toast.error(error.response.data.message, {
-                    position: "top-center",
+                toast.error(error.response?.data.message, {
+                    position: "bottom-right",
                     autoClose: 3000,
                     theme: "dark",
                     transition: Slide
@@ -77,7 +77,6 @@ const SharedState = (props) => {
     return (
         <Context.Provider value={{
             hostname,
-            loading, setLoading,
             user, setUser,
             isConnected, setIsConnected,
             onlineUsers, setOnlineUsers,

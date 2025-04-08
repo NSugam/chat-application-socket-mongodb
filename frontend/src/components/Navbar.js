@@ -32,7 +32,7 @@ export default function Navbar() {
         logoutRequest.then(async (res) => {
             if (res.data.success) {
                 socket.disconnect();
-                await states.setUser(null)
+                states.setUser(null)
                 states.setIsAuthenticated(false);
                 navigate('/login')
             } else {
@@ -48,28 +48,40 @@ export default function Navbar() {
 
     return (
         <>
-            <div className='d-flex justify-content-around align-items-center mb-4 mt-4 text-light'>
-                {location.pathname.includes('/chat/') || location.pathname.includes('/group-chat/')  ?
-                    <Link to='/' className='btn btn-outline-success'>{"<="} Back to home</Link> :
-                    <Link to='/' className='btn btn-success'>Home</Link>
-                }
-                <div className='text-secondary d-flex align-items-center'>
-                    {states.isConnected ? <span className="me-1" style={{ fontSize: '13px' }}>🟢</span> :
-                        <span className="me-1" style={{ fontSize: '13px' }}>🔴</span>
-                    }
-                    {states.user?.username || 'Login to continue'}</div>
-                <div>
-                    {states.isAuthenticated ?
-                        <button type="button" onClick={handleLogout} className="btn btn-danger">Logout</button> :
-                        <>
-                            <Link type="button" to='/signup' className="btn btn-info me-2">Create account</Link>
-                            <Link type="button" to='/login' className="btn btn-success">Login</Link>
-                        </>
-                    }
-                </div>
+            <div className='container-fluid p-3 text-light'>
+                <div className='d-flex flex-column flex-md-row justify-content-around align-items-center gap-3'>
 
+                    <div>
+                        {location.pathname.includes('/chat/') || location.pathname.includes('/group-chat/') ? (
+                            <Link to='/' className='btn btn-outline-success'>{"<="} Back to home</Link>
+                        ) : (
+                            <Link to='/' className='btn btn-success'>Home</Link>
+                        )}
+                    </div>
+
+                    <div className='d-flex align-items-center'>
+                        {states.isConnected ? (
+                            <span className="me-1" style={{ fontSize: '13px' }}>🟢</span>
+                        ) : (
+                            <span className="me-1" style={{ fontSize: '13px' }}>🔴</span>
+                        )}
+                        <span className='text-secondary'>{states.user?.username || 'Login to continue'}</span>
+                    </div>
+
+                    <div className='d-flex flex-wrap justify-content-center justify-content-md-end gap-2'>
+                        {states.isAuthenticated ? (
+                            <button type="button" onClick={handleLogout} className="btn btn-danger">Logout</button>
+                        ) : (
+                            <>
+                                <Link to='/signup' className="btn btn-info">Create account</Link>
+                                <Link to='/login' className="btn btn-success">Login</Link>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
             <hr className='text-light w-75 m-auto' />
         </>
-    )
+    );
+
 }
